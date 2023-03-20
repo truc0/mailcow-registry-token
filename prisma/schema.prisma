@@ -14,10 +14,12 @@ datasource db {
     url      = env("DATABASE_URL")
 }
 
-model Example {
+model Token {
     id        String   @id @default(cuid())
     createdAt DateTime @default(now())
     updatedAt DateTime @updatedAt
+    token     String   @default(uuid())
+    isValid   Boolean  @default(false)
 }
 
 // Necessary for Next auth
